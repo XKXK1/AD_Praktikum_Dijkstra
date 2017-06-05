@@ -92,8 +92,12 @@ public class AdjacencyList implements Graph {
 					nodeTwo.adjacencyList.remove(i);
 					continue;
 				}
+				nodeList.toArray(new Node[nodeList.size()]);
 			}
 	}
+	
+
+
 
 	public static void main(String[] args) {
 		Node a = new Node("A");
@@ -117,6 +121,17 @@ public class AdjacencyList implements Graph {
 		test.removeEdge(a, c);
 		System.out.println(test);
 		System.out.println(test.getWeight(a, b));
+		
+//		RandomGraphFactory factory = new RandomGraphFactory(1000, 13);
+//		AdjacencyList test=  factory.buildGraph();
+//
+//		Dijkstra navigation = new Dijkstra();
+//		
+//		navigation.computePaths(test.getNodeList().get(0));
+//		navigation.printMinDistanceFrom(test.getNodeList().get(5));
+
 	}
+
+
 
 }

@@ -16,7 +16,7 @@ public interface Graph {
 	void insertEdge(Node nodeOne, Node nodeTwo, int weight);
 	
 	void removeEdge(Node nodeOne, Node nodeTwo);
-	
+
 	
 
 }
