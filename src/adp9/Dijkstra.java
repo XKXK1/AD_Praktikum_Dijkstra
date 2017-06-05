@@ -6,7 +6,14 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Dijkstra {
+	
+	Graph graph;
+	
 
+
+	public Dijkstra(Graph graph) {
+		this.graph = graph;
+	}
 
 	public void computePaths(Node sourceNode) {
 
@@ -17,7 +24,7 @@ public class Dijkstra {
 		while (!NodeQueue.isEmpty()) {
 			Node u = NodeQueue.poll();
 
-			for (Edge edge : u.adjacencyList) {
+			for (Edge edge : graph.getNeighbors(u)) {
 				Node node = (Node) edge.node;
 				double weight = edge.weight;
 				double distanceThroughU = u.minDistance + weight;
@@ -95,7 +102,7 @@ public class Dijkstra {
 		test.insertEdge(g, f, 2);
 		test.insertEdge(g, h, 6);
 
-		Dijkstra navigation = new Dijkstra();
+		Dijkstra navigation = new Dijkstra(test);
 		navigation.computePaths(a);
 		navigation.printShortesPathFrom(h);
 		navigation.printMinDistanceFrom(h);

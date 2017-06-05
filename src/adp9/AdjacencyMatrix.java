@@ -181,6 +181,9 @@ public class AdjacencyMatrix implements Graph {
 		test.insertEdge(e, b, 1);
 
 		System.out.println(test.getNeighbors(a));
+		Dijkstra navigation = new Dijkstra(test);
+		navigation.computePaths(a);
+		navigation.printMinDistanceFrom(e);
 //		System.out.println(test);
 //		test.removeNode(c);
 //		System.out.println(test);
