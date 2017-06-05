@@ -156,6 +156,7 @@ public class AdjacencyMatrix implements Graph {
 
 		// remove edge
 		this.matrix[posNodeOne][posNodeTwo] = notConnected;
+		this.matrix[posNodeTwo][posNodeOne] = notConnected;
 
 	}// method
 
