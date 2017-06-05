@@ -7,17 +7,17 @@ import java.util.PriorityQueue;
 
 public class Dijkstra {
 
-	public static void computePaths(Node sourceNode) {
+	public static void computePaths(DijkstraNode sourceNode) {
 
 		sourceNode.minDistance = 0.;
-		PriorityQueue<Node> NodeQueue = new PriorityQueue<Node>();
+		PriorityQueue<DijkstraNode> NodeQueue = new PriorityQueue<DijkstraNode>();
 		NodeQueue.add(sourceNode);
 
 		while (!NodeQueue.isEmpty()) {
-			Node u = NodeQueue.poll();
+			DijkstraNode u = NodeQueue.poll();
 
 			for (Edge edge : u.adjacencyList) {
-				Node node = edge.node;
+				DijkstraNode node = (DijkstraNode) edge.node;
 				double weight = edge.weight;
 				double distanceThroughU = u.minDistance + weight;
 
@@ -32,10 +32,10 @@ public class Dijkstra {
 		}
 	}
 
-	public static List<Node> getShortestPathTo(Node target) {
+	public static List<DijkstraNode> getShortestPathTo(DijkstraNode target) {
 
-		List<Node> path = new ArrayList<Node>();
-		for (Node node = target; node != null; node = node.previous)
+		List<DijkstraNode> path = new ArrayList<DijkstraNode>();
+		for (DijkstraNode node = target; node != null; node = (DijkstraNode) node.previous)
 			path.add(node);
 
 		Collections.reverse(path);
@@ -45,14 +45,14 @@ public class Dijkstra {
 	public static void main(String[] args) {
 		Graph test = new AdjacencyList();
 
-		Node a = new Node("A");
-		Node b = new Node("B");
-		Node c = new Node("C");
-		Node d = new Node("D");
-		Node e = new Node("E");
-		Node f = new Node("F");
-		Node g = new Node("G");
-		Node h = new Node("H");
+		DijkstraNode a = new DijkstraNode("A");
+		DijkstraNode b = new DijkstraNode("B");
+		DijkstraNode c = new DijkstraNode("C");
+		DijkstraNode d = new DijkstraNode("D");
+		DijkstraNode e = new DijkstraNode("E");
+		DijkstraNode f = new DijkstraNode("F");
+		DijkstraNode g = new DijkstraNode("G");
+		DijkstraNode h = new DijkstraNode("H");
 
 		test.insertNode(a);
 		test.insertNode(b);
@@ -87,8 +87,15 @@ public class Dijkstra {
 
 		computePaths(a);
 		System.out.println("Distance to " + h + ": " + h.minDistance);
-		List<Node> path = getShortestPathTo(h);
+		List<DijkstraNode> path = getShortestPathTo(h);
 		System.out.println("Path: " + path);
 
 	}
 }
+
+
+
+
+
+
+
