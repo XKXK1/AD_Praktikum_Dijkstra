@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyMatrix implements Graph {
+	long counter;
+	
 	// Variables
 	private int notConnected = -1;
 	private int same = 0;
@@ -83,6 +85,7 @@ public class AdjacencyMatrix implements Graph {
 
 		int posNode = nodePos(node);
 		for (int j = 0; j < matrix[posNode].length; j++) {
+			counter++;
 			if (matrix[posNode][j] != same && matrix[posNode][j] != notConnected) {
 				edges.add(new Edge(nodes[j], matrix[posNode][j]));
 			} // if
@@ -110,9 +113,11 @@ public class AdjacencyMatrix implements Graph {
 
 		int posNodeOne = nodePos(nodeOne);
 		int posNodeTwo = nodePos(nodeTwo);
+		
+		counter++;
 
-		// check
-		if (matrix[posNodeOne][posNodeTwo] != same && matrix[posNodeOne][posNodeTwo] != notConnected) {
+		// check -- matrix[posNodeOne][posNodeTwo] != same && 
+		if (matrix[posNodeOne][posNodeTwo] != notConnected) {
 			return true;
 		} else {
 			return false;
@@ -184,7 +189,9 @@ public class AdjacencyMatrix implements Graph {
 		System.out.println(test.getNeighbors(a));
 		Dijkstra navigation = new Dijkstra(test);
 		navigation.computePaths(a);
+		System.out.println(navigation.counter);
 		navigation.printMinDistanceFrom(e);
+		
 //		System.out.println(test);
 //		test.removeNode(c);
 //		System.out.println(test);

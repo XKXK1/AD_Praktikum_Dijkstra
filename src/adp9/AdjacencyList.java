@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyList implements Graph {
+	long counter = 0;
 
 	public List<Node> nodeList;
 
@@ -39,6 +40,7 @@ public class AdjacencyList implements Graph {
 
 	@Override
 	public List<Edge> getNeighbors(Node node) {
+		counter++;
 		return node.adjacencyList;
 	}
 
@@ -57,6 +59,7 @@ public class AdjacencyList implements Graph {
 	@Override
 	public boolean connected(Node nodeOne, Node nodeTwo) {
 		for (Edge i : nodeOne.adjacencyList) {
+			counter++;
 			if (i.node == nodeTwo)
 				return true;
 		}
@@ -100,35 +103,46 @@ public class AdjacencyList implements Graph {
 
 
 	public static void main(String[] args) {
-		Node a = new Node("A");
-		Node b = new Node("B");
-		Node c = new Node("C");
-		Node d = new Node("D");
-		Node e = new Node("E");
-		Graph test = new AdjacencyList();
-		test.insertEdge(a, b, 5);
-		test.insertEdge(a, c, 7);
-		test.insertEdge(a, d, 2);
-		test.insertEdge(e, d, 2);
-		test.insertEdge(e, b, 1);
-		test.insertNode(a);
-		test.insertNode(b);
-		test.insertNode(c);
-		test.insertNode(d);
-		test.insertNode(e);
-
-		System.out.println(test);
-		test.removeEdge(a, c);
-		System.out.println(test);
-		System.out.println(test.getWeight(a, b));
-		
-//		RandomGraphFactory factory = new RandomGraphFactory(1000, 13);
-//		AdjacencyList test=  factory.buildGraph();
+//		Node a = new Node("A");
+//		Node b = new Node("B");
+//		Node c = new Node("C");
+//		Node d = new Node("D");
+//		Node e = new Node("E");
+//		Graph test = new AdjacencyList();
+//		test.insertEdge(a, b, 5);
+//		test.insertEdge(a, c, 7);
+//		test.insertEdge(a, d, 2);
+//		test.insertEdge(e, d, 2);
+//		test.insertEdge(e, b, 1);
+//		test.insertNode(a);
+//		test.insertNode(b);
+//		test.insertNode(c);
+//		test.insertNode(d);
+//		test.insertNode(e);
 //
-//		Dijkstra navigation = new Dijkstra();
+//		System.out.println(test);
+//		test.removeEdge(a, c);
+//		System.out.println(test);
+//		System.out.println(test.getWeight(a, b));
 //		
+		RandomGraphFactory factory = new RandomGraphFactory(1000, 13);
+		factory.buildGraph();
+		AdjacencyList testList=  factory.getResultListe();
+
+
+		
+		//System.out.println(test);
 //		navigation.computePaths(test.getNodeList().get(0));
+//		navigation.printShortesPathFrom(test.getNodeList().get(5));
 //		navigation.printMinDistanceFrom(test.getNodeList().get(5));
+		
+		testList.counter = 0;
+		System.out.println(testList.getNeighbors(testList.getNodeList().get(29)));
+		System.out.println(testList.counter);
+		testList.counter = 0;
+		System.out.println(testList.connected(testList.getNodeList().get(29), testList.getNodeList().get(288)));
+		System.out.println(testList.counter);
+		testList.counter = 0;
 
 	}
 

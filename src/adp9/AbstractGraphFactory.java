@@ -6,5 +6,6 @@ public interface AbstractGraphFactory {
 	 * 
 	 * @return the Graph
 	 */
-	public Graph buildGraph();
+
+	public void buildGraph();
 }
