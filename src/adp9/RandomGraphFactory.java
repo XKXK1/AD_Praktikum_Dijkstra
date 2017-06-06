@@ -34,7 +34,6 @@ public class RandomGraphFactory implements AbstractGraphFactory {
 	}
 	
 
-
 	@Override
 	public void buildGraph() {
 		resultListe = new AdjacencyList();
@@ -66,8 +65,6 @@ public class RandomGraphFactory implements AbstractGraphFactory {
 				}
 			}
 		}
-		
-
 	}
 
 

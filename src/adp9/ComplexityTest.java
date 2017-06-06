@@ -4,7 +4,7 @@ public class ComplexityTest {
 
 	public void testIsConnectedAndGetNeighbors() {
 		int zahl = 10;
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			System.out.println("-----------------------------------");
 			System.out.println("Graph size: " + zahl);
 
@@ -89,8 +89,8 @@ public class ComplexityTest {
 
 	public static void main(String[] args) {
 		ComplexityTest test = new ComplexityTest();
-		// test.testIsConnectedAndGetNeighbors();
-		test.testDijkstra();
+		 test.testIsConnectedAndGetNeighbors();
+		//test.testDijkstra();
 
 	}
 
