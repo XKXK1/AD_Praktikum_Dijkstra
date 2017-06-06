@@ -4,7 +4,7 @@ public class ComplexityTest {
 
 	public void testIsConnectedAndGetNeighbors() {
 		int zahl = 10;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 2; i++) {
 			System.out.println("-----------------------------------");
 			System.out.println("Graph size: " + zahl);
 
@@ -48,23 +48,25 @@ public class ComplexityTest {
 			RandomGraphFactory factory = new RandomGraphFactory(zahl, 13);
 			factory.buildGraph();
 			
-//			AdjacencyList testList = factory.getResultListe();
-//
-//			Dijkstra navigationList = new Dijkstra(testList);
-//			System.out.println("\nAdjacency-List-Dijkstra:");
-//
-//			navigationList.computePaths(testList.getNodeList().get(0));
-//			System.out.println("Counter for Computing Paths: " + navigationList.counter);
-//			navigationList.counter = 0;
-//
-//			navigationList.getShortestPathTo(testList.getNodeList().get(zahl - 5));
-//			System.out.println("Counter for getting shortest Path: " + navigationList.counter);
-//
-//			navigationList.counter = 0;
-//			
+			AdjacencyList testList = factory.getResultListe();
+			
+
+			Dijkstra navigationList = new Dijkstra(testList);
+			System.out.println("\nAdjacency-List-Dijkstra:");
+
+			navigationList.computePaths(testList.getNodeList().get(0));
+			System.out.println("Counter for Computing Paths: " + navigationList.counter);
+			navigationList.counter = 0;
+
+			navigationList.getShortestPathTo(testList.getNodeList().get(zahl - 5));
+			System.out.println("Counter for getting shortest Path: " + navigationList.counter);
+
+			navigationList.counter = 0;
+			
 			
 
 			AdjacencyMatrix testMatrix = factory.getResultMatrix();
+			
 
 			Dijkstra navigationMatrix = new Dijkstra(testMatrix);
 			System.out.println("\nAdjacency-Matrix-Dijkstra:");

@@ -59,6 +59,7 @@ public class RandomGraphFactory implements AbstractGraphFactory {
 				if(!resultListe.connected(resultListe.getNodeList().get(i), resultListe.getNodeList().get(j))){
 					resultListe.insertEdge(resultListe.nodeList.get(j), resultListe.nodeList.get(i), randomWeight);
 				}
+				//System.out.println("Knoten 1 : " + resultMatrix.nodes[i] + "Knoten 2 : " + resultMatrix.nodes[j] + "connected : " + resultMatrix.connected(resultMatrix.nodes[i], resultMatrix.nodes[j]));
 				if(!resultMatrix.connected(resultMatrix.nodes[i], resultMatrix.nodes[j])){
 					resultMatrix.insertEdge(resultMatrix.nodes[j], resultMatrix.nodes[i], randomWeight);
 				}//if

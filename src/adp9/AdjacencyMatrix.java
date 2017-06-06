@@ -118,9 +118,9 @@ public class AdjacencyMatrix implements Graph {
 
 		// check -- matrix[posNodeOne][posNodeTwo] != same && 
 		if (matrix[posNodeOne][posNodeTwo] != notConnected) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		} // if-else
 
 	}// method
