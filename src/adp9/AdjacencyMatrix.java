@@ -85,7 +85,8 @@ public class AdjacencyMatrix implements Graph {
 
 		int posNode = nodePos(node);
 		for (int j = 0; j < matrix[posNode].length; j++) {
-			counter++;
+			Dijkstra.dijkCounter++;
+			//counter++;
 			if (matrix[posNode][j] != same && matrix[posNode][j] != notConnected) {
 				edges.add(new Edge(nodes[j], matrix[posNode][j]));
 			} // if
@@ -189,7 +190,7 @@ public class AdjacencyMatrix implements Graph {
 		System.out.println(test.getNeighbors(a));
 		Dijkstra navigation = new Dijkstra(test);
 		navigation.computePaths(a);
-		System.out.println(navigation.counter);
+		System.out.println(Dijkstra.dijkCounter);
 		navigation.printMinDistanceFrom(e);
 		
 //		System.out.println(test);

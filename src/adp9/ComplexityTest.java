@@ -4,7 +4,7 @@ public class ComplexityTest {
 
 	public void testIsConnectedAndGetNeighbors() {
 		int zahl = 10;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			System.out.println("-----------------------------------");
 			System.out.println("Graph size: " + zahl);
 
@@ -41,7 +41,7 @@ public class ComplexityTest {
 
 	public void testDijkstra() {
 		int zahl = 10;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			System.out.println("-----------------------------------");
 			System.out.println("Graph size: " + zahl);
 
@@ -55,13 +55,13 @@ public class ComplexityTest {
 			System.out.println("\nAdjacency-List-Dijkstra:");
 
 			navigationList.computePaths(testList.getNodeList().get(0));
-			System.out.println("Counter for Computing Paths: " + navigationList.counter);
-			navigationList.counter = 0;
+			System.out.println("Counter for Computing Paths: " + Dijkstra.dijkCounter);
+			Dijkstra.dijkCounter=0;
 
 			navigationList.getShortestPathTo(testList.getNodeList().get(zahl - 5));
-			System.out.println("Counter for getting shortest Path: " + navigationList.counter);
+			System.out.println("Counter for getting shortest Path: " + Dijkstra.dijkCounter);
 
-			navigationList.counter = 0;
+			Dijkstra.dijkCounter = 0;
 			
 			
 
@@ -72,14 +72,14 @@ public class ComplexityTest {
 			System.out.println("\nAdjacency-Matrix-Dijkstra:");
 
 			navigationMatrix.computePaths(testMatrix.nodes[0]);
-			System.out.println("Counter for Computing Paths: " + navigationMatrix.counter);
+			System.out.println("Counter for Computing Paths: " + Dijkstra.dijkCounter);
 
-			navigationMatrix.counter = 0;
+			Dijkstra.dijkCounter = 0;
 			
 			navigationMatrix.getShortestPathTo(testMatrix.nodes[zahl - 5]);
-			System.out.println("Counter for getting shortest Path: " + navigationMatrix.counter);
+			System.out.println("Counter for getting shortest Path: " + Dijkstra.dijkCounter);
 
-			navigationMatrix.counter = 0;
+			Dijkstra.dijkCounter = 0;
 
 			zahl *= 10;
 
@@ -89,8 +89,8 @@ public class ComplexityTest {
 
 	public static void main(String[] args) {
 		ComplexityTest test = new ComplexityTest();
-		 test.testIsConnectedAndGetNeighbors();
-		//test.testDijkstra();
+		 //test.testIsConnectedAndGetNeighbors();
+		test.testDijkstra();
 
 	}
 

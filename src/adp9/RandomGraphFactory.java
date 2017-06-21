@@ -7,6 +7,7 @@ public class RandomGraphFactory implements AbstractGraphFactory {
 	AdjacencyList resultListe;
 	AdjacencyMatrix resultMatrix;
 	
+	private final int EDGECOUNT = 3;
 	
 	public final int LISTE = 1;
 	public final int MATRIX = 2;
@@ -49,9 +50,9 @@ public class RandomGraphFactory implements AbstractGraphFactory {
 		}
 
 		for (int j = 0; j < size; j++) {
-			int randomSizeNeighbors = (int) ((Math.random()) * size);
+			//int randomSizeNeighbors = (int) ((Math.random()) * size);
 
-			for (int i = 0; i < randomSizeNeighbors; i++) {
+			for (int i = 0; i < EDGECOUNT; i++) {
 				int randomWeight = rand.nextInt(MAX_WEIGHT)+MIN_WEIGHT ;
 				if(i != j){
 					

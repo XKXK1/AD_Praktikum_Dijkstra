@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyList implements Graph {
-	long counter = 0;
+	long counter = 0; 
 
 	public List<Node> nodeList;
 
@@ -40,6 +40,7 @@ public class AdjacencyList implements Graph {
 
 	@Override
 	public List<Edge> getNeighbors(Node node) {
+		Dijkstra.dijkCounter++;
 		counter++;
 		return node.adjacencyList;
 	}

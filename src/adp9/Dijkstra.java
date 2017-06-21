@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Dijkstra {
-	long counter = 0;
+	public static long dijkCounter = 0;
 	
 	Graph graph;
 	
@@ -23,11 +23,11 @@ public class Dijkstra {
 		NodeQueue.add(sourceNode);
 		
 		while (!NodeQueue.isEmpty()) {
-			counter++;
+			dijkCounter++;
 			Node u = NodeQueue.poll();
 
 			for (Edge edge : graph.getNeighbors(u)) {
-				counter++;
+				dijkCounter++;
 				Node node = (Node) edge.node;
 				double weight = edge.weight;
 				double distanceThroughU = u.minDistance + weight;
@@ -46,7 +46,7 @@ public class Dijkstra {
 	public List<Node> getShortestPathTo(Node target) {
 		List<Node> path = new ArrayList<Node>();
 		for (Node node = target; node != null; node = (Node) node.previous){
-			counter++;
+			dijkCounter++;
 			path.add(node);
 		}
 
@@ -111,5 +111,13 @@ public class Dijkstra {
 		navigation.printShortesPathFrom(h);
 		navigation.printMinDistanceFrom(h);
 
+	}
+
+	public static long getDijkCounter() {
+		return dijkCounter;
+	}
+
+	public static void setDijkCounter(long dijkCounter) {
+		Dijkstra.dijkCounter = dijkCounter;
 	}
 }
